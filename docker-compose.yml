@@ -2,7 +2,9 @@ version: "2"
 
 services:
   ml:
-    image: continuumio/anaconda3
+    build:
+      dockerfile: Dockerfile
+      context: .
     ports:
       - 8080:8080
     entrypoint: jupyter notebook --ip=0.0.0.0 --port=8080 --allow-root
